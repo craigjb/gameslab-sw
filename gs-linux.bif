@@ -1,0 +1,6 @@
+//arch = zynq; split = false; format = BIN
+image:
+{
+	[bootloader]../gameslab-hw/gameslab-hw.sdk/fsbl/Release/fsbl.elf
+	../u-boot-gs/u-boot.elf
+}
