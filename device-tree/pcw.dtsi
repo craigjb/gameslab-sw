@@ -11,6 +11,12 @@
 			operating-points = <650000 1000000 325000 1000000>;
 		};
 	};
+
+    usb_phy0: usb_phy0 {
+        #phy-cells = <0>;
+        compatible = "usb-nop-xceiv";
+        reset-gpios = <&gpio0 46 1>;
+    };
 };
 &gpio0 {
 	emio-gpio-width = <64>;
@@ -39,7 +45,7 @@
 };
 &usb0 {
 	dr_mode = "host";
-	phy_type = "ulpi";
+    usb-phy = <&usb_phy0>;
 	status = "okay";
 	usb-reset = <&gpio0 46 0>;
 };

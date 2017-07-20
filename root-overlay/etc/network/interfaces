@@ -1,0 +1,11 @@
+auto lo
+iface lo inet loopback
+
+auto wlan0
+iface wlan0 inet static
+    address 10.0.1.240
+    netmask 255.255.255.0
+    gateway 10.0.1.1
+    dns-nameservers 8.8.8.8
+    post-up /usr/sbin/wpa_supplicant -D nl80211 -iwlan0 -c /etc/wpa_supplicant.conf -B
+    wait-delay 5

@@ -24,3 +24,6 @@
 	cpus {
 	};
 };
+&clkc {
+	fclk-enable = <0xf>;
+};
