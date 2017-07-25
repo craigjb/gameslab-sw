@@ -2,5 +2,6 @@
 image:
 {
 	[bootloader]../gameslab-hw/gameslab-hw.sdk/fsbl/Release/fsbl.elf
+    ../gameslab-hw/gameslab-hw.runs/impl_1/gameslab_wrapper.bit 
 	../u-boot-gs/u-boot.elf
 }

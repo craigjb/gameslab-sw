@@ -26,4 +26,13 @@
 };
 &clkc {
 	fclk-enable = <0xf>;
+    assigned-clocks = <&clkc 15>, <&clkc 16>;
+    assigned-clock-rates = <100000000>, <32000000>;
+};
+&amba {
+    gslcd: gslcd@43c00000 {
+        compatible = "gslcd";
+        reg = <0x43c00000 0x1000>;
+        status = "okay";
+    };
 };

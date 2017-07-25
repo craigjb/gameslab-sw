@@ -7,8 +7,13 @@
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        printf("usage: lcden {on|off}\n");
+        printf("usage: lcden {on|off} <frame ptr>\n");
         return 1;
+    }
+
+    unsigned int frame_ptr = 0;
+    if (argc >= 3) {
+        sscanf(argv[2], "%x", &frame_ptr);
     }
 
     char enable = 1;
@@ -33,7 +38,14 @@ int main(int argc, char* argv[]) {
         return -1;
     }
 
-    volatile unsigned int *en_reg = mem + 2;
+    volatile unsigned int *frame_ptr_reg = mem + 1;
+    *frame_ptr_reg = frame_ptr;
+    
+    if (argc >= 3) {
+        printf("Frame ptr set to: %p\n", *frame_ptr_reg);
+    }
+
+    volatile unsigned int *en_reg = mem;
     if (enable)
         *en_reg = 0x1;
     else
