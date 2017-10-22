@@ -25,11 +25,16 @@
 ::sysinit:/bin/mount x /sys/kernel/config -t configfs
 ::sysinit:/bin/mount x /sys/kernel/debug -t debugfs
 ::sysinit:/bin/hostname -F /etc/hostname
+
+# Disable cursor blink on framebuffer
+::sysinit:/bin/sh -c "echo 0 > /sys/class/graphics/fbcon/cursor_blink"
+
 # now run any rc scripts
 ::sysinit:/etc/init.d/rcS
 
 # Put a getty on the serial port
 console::respawn:/sbin/getty -L  console 0 vt100 # GENERIC_SERIAL
+
 
 # Stuff to do for the 3-finger salute
 #::ctrlaltdel:/sbin/reboot
