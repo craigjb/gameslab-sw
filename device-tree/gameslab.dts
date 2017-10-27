@@ -29,6 +29,22 @@
     assigned-clocks = <&clkc 15>, <&clkc 16>;
     assigned-clock-rates = <100000000>, <32000000>;
 };
+&i2c0 {
+    ts0: ts@40 {
+        compatible = "silead,gsl1680";
+        firmware-name = "gsl1680.bin";
+        reg = <0x40>;
+        interrupt-parent = <&gpio0>;
+        interrupts = <54 1>; // EMIO0 Active High
+        touchscreen-size-x = <800>;
+        touchscreen-size-y = <480>;
+        silead,max-fingers = <10>;
+        silead,callibrated-min-x = <7>;
+        silead,callibrated-max-x = <1008>;
+        silead,callibrated-min-y = <6>;
+        silead,callibrated-max-y = <597>;
+    };
+};
 &amba {
     gslcd: gslcd@43c00000 {
         compatible = "gslcd";

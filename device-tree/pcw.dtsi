@@ -43,6 +43,10 @@
 	port-number = <0>;
 	status = "okay";
 };
+&i2c0 {
+    status = "okay";
+    clock-frequency = <400000>;
+};
 &usb0 {
 	dr_mode = "host";
     usb-phy = <&usb_phy0>;
