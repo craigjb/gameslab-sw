@@ -19,7 +19,6 @@
 ::sysinit:/bin/echo /sbin/mdev >/proc/sys/kernel/hotplug
 ::sysinit:/sbin/mdev -s
 ::sysinit:/bin/mount -o remount,rw /
-::sysinit:/sbin/sd_bootmount.sh
 ::sysinit:/bin/mkdir -p /dev/shm
 ::sysinit:/bin/mount -a
 ::sysinit:/bin/mount x /sys/kernel/config -t configfs
@@ -33,7 +32,7 @@
 ::sysinit:/etc/init.d/rcS
 
 # Put a getty on the serial port
-console::respawn:/sbin/getty -L  console 0 vt100 # GENERIC_SERIAL
+console::respawn:/sbin/getty -L ttyPS0 0 vt100 # GENERIC_SERIAL
 
 
 # Stuff to do for the 3-finger salute
