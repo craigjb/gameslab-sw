@@ -1,0 +1,8 @@
+[package]
+name = "terrain"
+version = "0.1.0"
+authors = ["craigjb"]
+
+[dependencies]
+memmap = "0.6.1"
+png = "0.11.0"
